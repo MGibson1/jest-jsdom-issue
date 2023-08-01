@@ -7,7 +7,7 @@ describe("WebCryptoFunctionService", () => {
       const a = new Uint8Array(2);
       a[0] = 1;
       a[1] = 2;
-      const equal = await cryptoFunctionService.compare(a.buffer, a.buffer);
+      const equal = await cryptoFunctionService.compare(a, a);
       expect(equal).toBe(true);
     });
   });

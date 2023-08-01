@@ -11,7 +11,7 @@ export class WebCryptoFunctionService {
   // Safely compare two values in a way that protects against timing attacks (Double HMAC Verification).
   // ref: https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2011/february/double-hmac-verification/
   // ref: https://paragonie.com/blog/2015/11/preventing-timing-attacks-on-string-comparison-with-double-hmac-strategy
-  async compare(a: ArrayBuffer, b: ArrayBuffer): Promise<boolean> {
+  async compare(a: Uint8Array, b: Uint8Array): Promise<boolean> {
     const macKey = await this.randomBytes(32);
     const signingAlgorithm = {
       name: "HMAC",
@@ -36,9 +36,9 @@ export class WebCryptoFunctionService {
     return true;
   }
 
-  randomBytes(length: number): Promise<ArrayBuffer> {
+  randomBytes(length: number): Promise<Uint8Array> {
     const arr = new Uint8Array(length);
     this.crypto.getRandomValues(arr);
-    return Promise.resolve(arr.buffer as ArrayBuffer);
+    return Promise.resolve(arr);
   }
 }

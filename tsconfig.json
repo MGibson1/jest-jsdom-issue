@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+
+    "target": "ES2016",
+    "module": "ES2020",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist"
+  },
+  "lib": [
+    "es5",
+    "es6",
+    "es7",
+    "dom"
+  ],
+  "exclude": ["test.setup.ts", "*.spec.ts"]
+}
